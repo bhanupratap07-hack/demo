@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ========== META & SEO ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Paradise - Luxury Hotel in Mumbai | Best Rates & Rooms</title>
+    <meta name="description" content="Book your stay at Hotel Paradise, Mumbai. Luxury rooms starting from ₹2,499/night. Free WiFi, 24/7 service, swimming pool. Book now on WhatsApp!">
+    <meta name="keywords" content="hotel mumbai, luxury hotel, hotel paradise, best hotel mumbai, cheap hotel mumbai, rooms in mumbai">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hotel Paradise - Luxury Hotel in Mumbai">
+    <meta property="og:description" content="Luxury rooms starting from ₹2,499/night. Free WiFi, 24/7 service, swimming pool. Book now!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hotelparadise.in">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200">
+
+    <!-- ========== CDN LINKS ========== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ========== TAILWIND CONFIG ========== -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#D4AF37',
+                        accent: '#059669',
+                        dark: '#1F2937',
+                        lightbg: '#F9FAFB',
+                        whatsapp: '#25D366',
+                        textmain: '#374151',
+                        mmt: '#E8425F',
+                        booking: '#003580',
+                        goibibo: '#FF6D38',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ========== CUSTOM STYLES ========== -->
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        /* Hero Background */
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80') center/cover no-repeat;
+            min-height: 100vh;
+        }
+
+        /* Scroll indicator bounce */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        .scroll-indicator { animation: bounce-slow 2s ease-in-out infinite; }
+
+        /* WhatsApp pulse */
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #25D366;
+            animation: pulse-ring 2s ease-out infinite;
+            z-index: -1;
+        }
+
+        /* Gallery overlay */
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay {
+            opacity: 0;
+            transition: opacity 0.3s;
+            background: rgba(30, 58, 138, 0.6);
+        }
+
+        /* Lightbox */
+        .lightbox { display: none; }
+        .lightbox.active { display: flex; }
+
+        /* Section fade-in */
+        .fade-section { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+        .fade-section.visible { opacity: 1; transform: translateY(0); }
+
+        /* Card hover lift */
+        .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+
+        /* Partner card */
+        .partner-card { border-top: 4px solid transparent; }
+        .partner-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-white text-textmain">
+
+    <!-- ========== HERO SECTION ========== -->
+    <!-- CUSTOMIZE: Hotel name, tagline, WhatsApp number -->
+    <section id="hero" class="hero-bg flex items-center justify-center relative">
+        <div class="text-center px-4 max-w-3xl">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
+                Hotel <span class="text-secondary">Paradise</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-200 font-light mb-2">Experience Luxury &amp; Comfort in the Heart of the City</p>
+            <p class="text-sm md:text-base text-gray-300 mb-10">Your Perfect Stay Awaits</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/919876543210?text=Hello,%20I%20want%20to%20book%20a%20room%20at%20Hotel%20Paradise" target="_blank" rel="noopener"
+                   class="inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-green-600 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 text-base shadow-lg hover:shadow-xl">
+                    <i class="fab fa-whatsapp text-xl"></i> Book via WhatsApp
+                </a>
+                <a href="#rooms"
+                   class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-primary font-semibold py-3.5 px-8 rounded-full transition-all duration-300 text-base">
+                    <i class="fas fa-bed"></i> View Rooms
+                </a>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+            <a href="#about" class="text-white/70 hover:text-white transition" aria-label="Scroll down">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="bg-lightbg py-20 md:py-24 fade-section">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Welcome to Hotel Paradise</h2>
+            <p class="text-secondary font-medium text-lg mb-8">Where Comfort Meets Excellence</p>
+            <p class="text-textmain leading-relaxed text-base md:text-lg">
+                Nestled in the heart of Mumbai, Hotel Paradise offers an unforgettable blend of luxury, comfort, and warm Indian hospitality.
+                Whether you're travelling for business or leisure, our thoughtfully designed rooms, world-class amenities, and dedicated staff ensure
+                every moment of your stay is truly special. From the moment you step in, you'll feel right at home — only better.
+                Come, experience the paradise you deserve.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== WHY CHOOSE US SECTION ========== -->
+    <section id="features" class="bg-white py-20 md:py-24 fade-section">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Why Choose Us</h2>
+                <p class="text-textmain/70">Trusted by 10,000+ happy guests across India</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover bg-white rounded-2xl p-6 md:p-8 text-center shadow-md border border-gray-100">
+                    <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-full bg-secondary/15">
+                        <i class="fas fa-wifi text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="font-semibold text-dark text-base md:text-lg mb-1">Free High-Speed WiFi</h3>
+                    <p class="text-sm text-textmain/60">Stay connected throughout your visit</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card-hover bg-white rounded-2xl p-6 md:p-8 text-center shadow-md border border-gray-100">
+                    <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-full bg-secondary/15">
+                        <i class="fas fa-clock text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="font-semibold text-dark text-base md:text-lg mb-1">24/7 Service</h3>
+                    <p class="text-sm text-textmain/60">Round-the-clock assistance</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card-hover bg-white rounded-2xl p-6 md:p-8 text-center shadow-md border border-gray-100">
+                    <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-full bg-secondary/15">
+                        <i class="fas fa-concierge-bell text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="font-semibold text-dark text-base md:text-lg mb-1">Room Service</h3>
+                    <p class="text-sm text-textmain/60">Delicious meals delivered to your room</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="card-hover bg-white rounded-2xl p-6 md:p-8 text-center shadow-md border border-gray-100">
+                    <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-full bg-secondary/15">
+                        <i class="fas fa-shield-alt text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="font-semibold text-dark text-base md:text-lg mb-1">Safe &amp; Secure</h3>
+                    <p class="text-sm text-textmain/60">CCTV surveillance and secure premises</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== OUR ROOMS SECTION ========== -->
+    <section id="rooms" class="bg-lightbg py-20 md:py-24 fade-section">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Our Rooms</h2>
+                <p class="text-textmain/70">Choose Your Perfect Stay</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Room 1 - Deluxe -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Deluxe Room at Hotel Paradise" class="w-full aspect-video object-cover" loading="lazy">
+                        <span class="absolute top-3 right-3 bg-secondary text-white text-xs font-semibold px-3 py-1 rounded-full shadow">Most Popular</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Deluxe Room</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-bold text-primary">₹2,499</span>
+                            <span class="text-sm text-textmain/50">/night</span>
+                        </div>
+                        <div class="flex gap-4 mb-4 text-textmain/60 text-sm">
+                            <span class="flex items-center gap-1"><i class="fas fa-snowflake"></i> AC</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-wifi"></i> WiFi</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tv"></i> TV</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-coffee"></i> Breakfast</span>
+                        </div>
+                        <p class="text-sm text-textmain/60 mb-5">Spacious room with modern amenities, perfect for couples and solo travellers.</p>
+                        <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20book%20the%20Deluxe%20Room%20at%20₹2,499/night" target="_blank" rel="noopener"
+                           class="block w-full text-center bg-whatsapp hover:bg-green-600 text-white font-semibold py-3 rounded-xl transition-all duration-300">
+                            <i class="fab fa-whatsapp mr-1"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+                <!-- Room 2 - Executive Suite -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&q=80" alt="Executive Suite at Hotel Paradise" class="w-full aspect-video object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Executive Suite</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-bold text-primary">₹3,999</span>
+                            <span class="text-sm text-textmain/50">/night</span>
+                        </div>
+                        <div class="flex gap-4 mb-4 text-textmain/60 text-sm">
+                            <span class="flex items-center gap-1"><i class="fas fa-snowflake"></i> AC</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-wifi"></i> WiFi</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tv"></i> TV</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-coffee"></i> Breakfast</span>
+                        </div>
+                        <p class="text-sm text-textmain/60 mb-5">Luxurious suite with a separate living area, ideal for families and business travellers.</p>
+                        <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20book%20the%20Executive%20Suite%20at%20₹3,999/night" target="_blank" rel="noopener"
+                           class="block w-full text-center bg-whatsapp hover:bg-green-600 text-white font-semibold py-3 rounded-xl transition-all duration-300">
+                            <i class="fab fa-whatsapp mr-1"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+                <!-- Room 3 - Premium Suite -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Premium Suite at Hotel Paradise" class="w-full aspect-video object-cover" loading="lazy">
+                        <span class="absolute top-3 right-3 bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full shadow">Best Value</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Premium Suite</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-bold text-primary">₹5,499</span>
+                            <span class="text-sm text-textmain/50">/night</span>
+                        </div>
+                        <div class="flex gap-4 mb-4 text-textmain/60 text-sm">
+                            <span class="flex items-center gap-1"><i class="fas fa-snowflake"></i> AC</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-wifi"></i> WiFi</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tv"></i> TV</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-coffee"></i> Breakfast</span>
+                        </div>
+                        <p class="text-sm text-textmain/60 mb-5">Ultimate luxury with premium facilities, king-size bed, and city view balcony.</p>
+                        <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20book%20the%20Premium%20Suite%20at%20₹5,499/night" target="_blank" rel="noopener"
+                           class="block w-full text-center bg-whatsapp hover:bg-green-600 text-white font-semibold py-3 rounded-xl transition-all duration-300">
+                            <i class="fab fa-whatsapp mr-1"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== AMENITIES SECTION ========== -->
+    <section id="amenities" class="bg-white py-20 md:py-24 fade-section">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Hotel Amenities</h2>
+                <p class="text-textmain/70">Everything You Need for a Comfortable Stay</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-wifi text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Free WiFi</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-snowflake text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Air Conditioning</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-tv text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Smart TV</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-utensils text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Multi-Cuisine Restaurant</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-swimming-pool text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Swimming Pool</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-dumbbell text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Fitness Center</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-car text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Free Parking</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-coffee text-2xl text-primary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <p class="font-medium text-dark text-sm">Complimentary Breakfast</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PHOTO GALLERY SECTION ========== -->
+    <section id="gallery" class="bg-lightbg py-20 md:py-24 fade-section">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Gallery</h2>
+                <p class="text-textmain/70">Take a Visual Tour</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Hotel Paradise Exterior" class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg"><i class="fas fa-search-plus mr-2"></i>View</span>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Luxury Room" class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg"><i class="fas fa-search-plus mr-2"></i>View</span>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="Hotel Lobby" class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg"><i class="fas fa-search-plus mr-2"></i>View</span>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Restaurant" class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg"><i class="fas fa-search-plus mr-2"></i>View</span>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=600&q=80" alt="Swimming Pool" class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg"><i class="fas fa-search-plus mr-2"></i>View</span>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80" alt="Hotel Facilities" class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg"><i class="fas fa-search-plus mr-2"></i>View</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox fixed inset-0 z-[10000] bg-black/90 items-center justify-center" onclick="closeLightbox(event)">
+        <button onclick="closeLightbox(event, true)" class="absolute top-4 right-4 text-white text-3xl z-10 hover:text-secondary transition w-12 h-12 flex items-center justify-center" aria-label="Close gallery">
+            <i class="fas fa-times"></i>
+        </button>
+        <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-secondary transition w-12 h-12 flex items-center justify-center" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-secondary transition w-12 h-12 flex items-center justify-center" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Gallery Image" class="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl">
+    </div>
+
+    <!-- ========== LOCATION & CONTACT SECTION ========== -->
+    <!-- CUSTOMIZE: Address, phone, email, Google Maps embed -->
+    <section id="contact" class="bg-white py-20 md:py-24 fade-section">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Location &amp; Contact</h2>
+                <p class="text-textmain/70">We'd Love to Hear From You</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Contact Card -->
+                <div class="bg-lightbg rounded-2xl p-8 md:p-10">
+                    <h3 class="text-2xl font-bold text-dark mb-6">Visit Us</h3>
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 shrink-0 mt-1">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-dark">Hotel Paradise</p>
+                                <p class="text-textmain/70 text-sm">123, MG Road<br>Near City Mall<br>Mumbai, Maharashtra - 400001</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 shrink-0">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <a href="tel:+919876543210" class="text-primary font-medium hover:text-secondary transition">+91 98765 43210</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 shrink-0">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <a href="mailto:info@hotelparadise.com" class="text-primary font-medium hover:text-secondary transition">info@hotelparadise.com</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Map -->
+                <div class="rounded-2xl overflow-hidden shadow-md">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.753085!2d72.8311!3d19.0760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjYiTiA3MsKwNDknNTIuMCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Hotel Paradise Location on Google Maps"
+                        class="w-full h-[350px] md:h-[400px]">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BOOK THROUGH PARTNERS SECTION ========== -->
+    <section id="partners" class="bg-lightbg py-20 md:py-24 fade-section">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Book Through Our Partners</h2>
+                <p class="text-textmain/70">Choose Your Preferred Platform</p>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- MakeMyTrip -->
+                <div class="partner-card bg-white rounded-2xl p-8 text-center shadow-md transition-all duration-300 border-t-mmt cursor-pointer hover:shadow-xl" style="border-top-color: #E8425F;">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full" style="background: #E8425F15;">
+                        <span class="text-2xl font-bold" style="color: #E8425F;">M</span>
+                    </div>
+                    <h3 class="font-bold text-dark text-lg mb-1">MakeMyTrip</h3>
+                    <p class="text-sm text-textmain/60 mb-5">India's #1 travel platform</p>
+                    <a href="https://www.makemytrip.com" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-white text-sm transition-all duration-300 hover:opacity-90" style="background: #E8425F;">
+                        Book Now <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>
+                </div>
+                <!-- Booking.com -->
+                <div class="partner-card bg-white rounded-2xl p-8 text-center shadow-md transition-all duration-300 cursor-pointer hover:shadow-xl" style="border-top-color: #003580;">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full" style="background: #00358015;">
+                        <span class="text-2xl font-bold" style="color: #003580;">B</span>
+                    </div>
+                    <h3 class="font-bold text-dark text-lg mb-1">Booking.com</h3>
+                    <p class="text-sm text-textmain/60 mb-5">World's leading travel site</p>
+                    <a href="https://www.booking.com" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-white text-sm transition-all duration-300 hover:opacity-90" style="background: #003580;">
+                        Book Now <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>
+                </div>
+                <!-- Goibibo -->
+                <div class="partner-card bg-white rounded-2xl p-8 text-center shadow-md transition-all duration-300 cursor-pointer hover:shadow-xl" style="border-top-color: #FF6D38;">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full" style="background: #FF6D3815;">
+                        <span class="text-2xl font-bold" style="color: #FF6D38;">G</span>
+                    </div>
+                    <h3 class="font-bold text-dark text-lg mb-1">Goibibo</h3>
+                    <p class="text-sm text-textmain/60 mb-5">Best deals guaranteed</p>
+                    <a href="https://www.goibibo.com" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-white text-sm transition-all duration-300 hover:opacity-90" style="background: #FF6D38;">
+                        Book Now <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <!-- CUSTOMIZE: Social links, phone, email -->
+    <footer class="bg-dark text-gray-300 pt-16 pb-6">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-10 mb-10">
+                <!-- Column 1 - Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Hotel <span class="text-secondary">Paradise</span></h3>
+                    <p class="text-sm text-gray-400 mb-5">Experience Luxury & Comfort in the Heart of the City</p>
+                    <div class="flex gap-3">
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-gray-400 hover:bg-secondary hover:border-secondary hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-gray-400 hover:bg-secondary hover:border-secondary hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-gray-400 hover:bg-secondary hover:border-secondary hover:text-white transition-all duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-gray-400 hover:bg-secondary hover:border-secondary hover:text-white transition-all duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Column 2 - Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-secondary transition text-sm">About Us</a></li>
+                        <li><a href="#rooms" class="text-gray-400 hover:text-secondary transition text-sm">Rooms</a></li>
+                        <li><a href="#amenities" class="text-gray-400 hover:text-secondary transition text-sm">Amenities</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-secondary transition text-sm">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-secondary transition text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 - Contact -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="fas fa-phone text-secondary"></i>
+                            <a href="tel:+919876543210" class="text-gray-400 hover:text-secondary transition">+91 98765 43210</a>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="fas fa-envelope text-secondary"></i>
+                            <a href="mailto:info@hotelparadise.com" class="text-gray-400 hover:text-secondary transition">info@hotelparadise.com</a>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fas fa-map-marker-alt text-secondary mt-1"></i>
+                            <span class="text-gray-400">123, MG Road, Mumbai - 400001</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-sm text-gray-500">Made with <span class="text-red-500">❤️</span> in India &nbsp;|&nbsp; © 2024 Hotel Paradise. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING WHATSAPP BUTTON ========== -->
+    <!-- CUSTOMIZE: WhatsApp number -->
+    <a href="https://wa.me/919876543210?text=Hello,%20I%20want%20to%20book%20a%20room%20at%20Hotel%20Paradise"
+       target="_blank" rel="noopener"
+       class="whatsapp-float fixed bottom-6 right-6 z-[9999] w-[65px] h-[65px] md:w-[65px] md:h-[65px] bg-whatsapp rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300"
+       aria-label="Chat on WhatsApp"
+       style="width:65px;height:65px;">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Gallery images for lightbox
+        const galleryImages = [
+            'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',
+            'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=80',
+            'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80',
+            'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80',
+            'https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1200&q=80',
+            'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&q=80'
+        ];
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = galleryImages[index];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e, force) {
+            if (force || e.target === document.getElementById('lightbox')) {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function nextImage(e) {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+        }
+
+        function prevImage(e) {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+        }
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox(e, true);
+            if (e.key === 'ArrowRight') nextImage(e);
+            if (e.key === 'ArrowLeft') prevImage(e);
+        });
+
+        // Fade-in on scroll (Intersection Observer)
+        const fadeSections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeSections.forEach(section => observer.observe(section));
+    </script>
+
+</body>
+</html>
